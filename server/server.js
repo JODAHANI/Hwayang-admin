@@ -12,11 +12,12 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(
-  cors({
-    credentials: true,
-    origin: "https://hwayang-client-git-master-jodahani.vercel.app/",
-  })
+  cors({ credentials: true, origin: "https://hwayang-admin.vercel.app/" })
+);
+app.use(
+  cors({ credentials: true, origin: "https://hwayang-admin.vercel.app/" })
 );
 
 app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
