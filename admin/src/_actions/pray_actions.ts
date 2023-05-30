@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Routes } from "constants/routeItems";
+import { Routes, hwayang } from "constants/routeItems";
 import {
   POST_PRAYS,
   ADD_PRAYS,
@@ -66,7 +66,7 @@ export const editPrays = async (body, prays) => {
 export const deletePrays = async (body, prays) => {
   try {
     const axiosRequest = await axios.post(
-      "/api/users/delete/pray-request",
+      `${hwayang}/api/users/delete/pray-request`,
       body
     );
     let data = axiosRequest.data;

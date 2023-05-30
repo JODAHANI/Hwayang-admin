@@ -8,9 +8,12 @@ import {
   UPDATE_LOGOS,
   GET_NEWFAMILYS,
 } from "./types";
+import { adminServer } from "constants/routeItems";
 
 export const loginUser = async (dataTosubmit: object) => {
-  let request = await axios.post("/api/admin/login", dataTosubmit);
+  let request = await axios.post(`${adminServer}/login`, dataTosubmit, {
+    withCredentials: true,
+  });
   const data = request.data;
   return {
     type: LOGIN_USER,
@@ -19,7 +22,7 @@ export const loginUser = async (dataTosubmit: object) => {
 };
 
 export const register = async (dataTosubmit: object) => {
-  let request = await axios.post("/api/admin/register", dataTosubmit);
+  let request = await axios.post(`${adminServer}/register`, dataTosubmit);
   const data = request.data;
   return {
     type: REGISTER_USER,
@@ -27,7 +30,9 @@ export const register = async (dataTosubmit: object) => {
   };
 };
 export const auth = async () => {
-  const request = await axios.get("/api/admin/auth");
+  const request = await axios.get(`${adminServer}/auth`, {
+    withCredentials: true,
+  });
   const data = request.data;
   return {
     type: AUTH_USER,
@@ -36,7 +41,7 @@ export const auth = async () => {
 };
 
 export const userLogout = async () => {
-  const request = await axios.get("/api/admin/logout");
+  const request = await axios.get(`${adminServer}/logout`);
   const data = request.data;
   return {
     type: LOGOUT,
@@ -46,7 +51,7 @@ export const userLogout = async () => {
 
 export const getProclamation = async () => {
   try {
-    const request = await axios.get("/api/admin/proclamation");
+    const request = await axios.get(`${adminServer}/proclamation`);
     const data = request.data;
     return {
       type: GET_LOGOS,
@@ -62,7 +67,7 @@ export const getProclamation = async () => {
 
 export const updateProclamation = async (dataTosubmit) => {
   const request = await axios.post(
-    "/api/admin/proclamation-update",
+    `${adminServer}/proclamation-update`,
     dataTosubmit
   );
   const data = request.data;
@@ -77,7 +82,7 @@ export const notificationImageSave = async (dataTosubmit) => {
     header: { "content-type": "multipart/form-data" },
   };
   const request = await axios.post(
-    "/api/admin/notification/image-save",
+    `${adminServer}/notification/image-save`,
     dataTosubmit,
     config
   );
@@ -88,7 +93,7 @@ export const notificationImageSave = async (dataTosubmit) => {
 
 export const postNotification = async (dataTosubmit) => {
   const request = await axios.post(
-    "/api/admin/notification/upload-notification",
+    `${adminServer}/notification/upload-notification`,
     dataTosubmit
   );
   const data = request.data;
@@ -96,13 +101,15 @@ export const postNotification = async (dataTosubmit) => {
 };
 
 export const getNotifications = async () => {
-  const request = await axios.get("/api/admin/notification/get-notifications");
+  const request = await axios.get(
+    `${adminServer}/notification/get-notifications`
+  );
   const data = request.data;
   return data;
 };
 
 export const getNewFamilys = async (body, newFamily) => {
-  const request = await axios.post("/api/admin/new-family", body);
+  const request = await axios.post(`${adminServer}/new-family`, body);
   const data = request.data;
   if (body.loadMore) {
     const newFamilyNewArray = [...newFamily, ...data.newFamily];
