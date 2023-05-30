@@ -38,7 +38,6 @@ export const Routes = {
   graceImageSave: `/api/users/grace-sharing/write/image-save`,
 
   getThanksLetter: `${hwayang}/api/users/thanks-letters`,
-  // getThanksLetter: `${hwayang}/api/users/thanks-letters`,
   thanksLetter: `/admin/thanks-letter`,
   thanksLetterWrite: `/thanks-letter/write`,
   thanksLetterDetail: `/thanks-letter/:id`,

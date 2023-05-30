@@ -60,6 +60,7 @@ const App = () => {
     <div className=" bg-white">
       <Header />
       <Switch>
+        <Route exact path={"/"} component={Login} />
         <Route exact path={login} component={Auth(Login, false)} />
         <Route exact path={signUp} component={Auth(SignUp, false)} />
         <Route exact path={home} component={Auth(AdminHome, true)} />
