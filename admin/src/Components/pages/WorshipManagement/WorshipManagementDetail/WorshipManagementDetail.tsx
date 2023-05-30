@@ -64,12 +64,15 @@ const WorshipManagementDetail = (props) => {
           </div>
           <div className="my-8 px-4">
             <h3 className="font-semibold">참석인원 : {worship.parti.length}</h3>
-            <h4 className="my-2 font-semibold">참석명단 : </h4>
-            <ul>
-              {worship.parti.map((item) => (
-                <Card key={item._id} item={item} />
-              ))}
-            </ul>
+            <div className="my-5">
+              <h4 className="my-2 font-semibold text-[#222]">참석 명단</h4>
+              <div className="border-2 border-[#444]" />
+              <ul>
+                {worship.parti.map((parti, i) => (
+                  <Card key={i} parti={parti} />
+                ))}
+              </ul>
+            </div>
           </div>
         </>
       )}
@@ -77,11 +80,12 @@ const WorshipManagementDetail = (props) => {
   );
 };
 
-const Card = (item) => {
-  console.log(item);
+const Card = (parti) => {
   return (
-    <ul>
-      <h4>{item.name}</h4>
+    <ul className="border-b-2 p-2 px-4">
+      <li>
+        <h4 className="font-bold text-[#777]">{parti.parti.name}</h4>
+      </li>
     </ul>
   );
 };

@@ -1,5 +1,5 @@
 import { deleteNewFamily } from "_actions/newFamily_actions";
-import { adminServer } from "constants/routeItems";
+import { adminImg, adminServer } from "constants/routeItems";
 import { useDispatch } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 
@@ -42,7 +42,7 @@ const NewFamilyDetail = () => {
             {name}
           </span>
         </div>
-        <img src={`${adminServer}/${imagePath}`} alt="공지이미지" />
+        <img src={`${adminImg}/${imagePath}`} alt="공지이미지" />
       </div>
       <div className="px-5">
         <h2 className="p-4 font-semibold  bg-[#B4E4FF] my-2 text-[#fff] max-sm:font-xs rounded-lg">

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import WorshipApplyForm from "./WorshipApplyForm/WorshipApplyForm";
 import { useDispatch, useSelector } from "react-redux";
 import { getWorship } from "_actions/worship_action";
-import { Routes, adminServer } from "constants/routeItems";
+import { Routes, adminImg, adminServer } from "constants/routeItems";
+import moment from "moment";
 
 const { worshipManagement } = Routes;
 
@@ -11,6 +12,7 @@ const WorshipManagement = () => {
   const dispatch: any = useDispatch();
   const allWorship = useSelector((state: any) => state?.worship?.allWorship);
   const worship = useSelector((state: any) => state?.worship?.worship);
+
   const [isForm, setIsForm] = useState(false);
 
   const isFormHandler = () => {
@@ -60,6 +62,11 @@ const WorshipManagement = () => {
 };
 
 const Card = ({ item }) => {
+  const openDate = moment(new Date(`${item.openDate}T${item.openTime}`));
+  const worshipTime = moment(new Date(`${item.date}T${item.time}`));
+  const nowDate: any = moment(Date.now());
+  const prev = moment.duration(nowDate.diff(worshipTime)).asSeconds();
+  const prevCheck = Math.sign(prev) < 0 ? false : true;
   return (
     <li className="prays p-2 pl-5 my-4 shadow-md border-2 max-sm:text-xs">
       <Link
@@ -69,7 +76,7 @@ const Card = ({ item }) => {
         <div className="worship-card h-auto flex my-3">
           <img
             className="h-32 inline-block rounded-md"
-            src={`${adminServer}/${item.imagePath}`}
+            src={`${adminImg}/${item.imagePath}`}
             alt="설교자 사진"
           />
           <div className="center flex flex-col flex-start px-4 text-[#999] py-2">
@@ -99,12 +106,21 @@ const Card = ({ item }) => {
             </div>
           </div>
           <div className="flex items-center mr-2">
-            <button
-              type="button"
-              className="block px-4 text-[#fff] bg-[#3ed1fe] font-bold rounded-md max:sm:py-1 h-8"
-            >
-              view
-            </button>
+            {!prevCheck ? (
+              <button
+                type="button"
+                className="block px-4 text-[#fff] bg-[#3ed1fe] font-bold rounded-md max:sm:py-1 h-8"
+              >
+                view
+              </button>
+            ) : (
+              <button
+                type="button"
+                className="block px-4 text-[#fff] bg-[#444] font-bold rounded-md max:sm:py-1 h-8"
+              >
+                지난예배
+              </button>
+            )}
           </div>
         </div>
       </Link>

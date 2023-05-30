@@ -300,7 +300,7 @@ adminRouter.post("/worship-management", async (req, res) => {
       body: { id },
     } = req;
 
-    const offLineWorship = await OffLineWorship.findById(id);
+    const offLineWorship = await OffLineWorship.findById(id).populate("parti");
     return res.json({ success: true, offLineWorship });
   } catch (err) {
     return res.json({ success: false });
