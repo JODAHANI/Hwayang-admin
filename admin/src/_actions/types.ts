@@ -9,8 +9,12 @@ export const ON_SUCCESS_BUY = "on_success_buy";
 export const LOGOUT = "logout";
 export const GET_LOGOS = "get_logos";
 export const UPDATE_LOGOS = "UPDATE_LOGOS";
+
 export const GET_NEWFAMILYS = "get_newFamilys";
 export const GET_NEW_FAMILY = "get_new_family";
+export const COMBINE_NEW_FAMILYS = "combine_new_familys";
+export const DELETE_NEW_FAMILYS = "delete_new_familys";
+
 export const GET_GRACE_SHARE = "get_grace_share";
 export const COMBINE_GRACE_SHARE = "combine_grace_share";
 export const ADD_GRACE_SHARE = "add_grace_share";

@@ -1,6 +1,6 @@
 // **라우트랑 텍스트는 구분해서 관리.
-export const hwayang = `https://port-0-hwayang-7e6o2clhv5snco.sel4.cloudtype.app/`;
-export const adminServer = `http://localhost:80`;
+export const hwayang = `https://port-0-hwayang-client-server-7e6o2clhv5snco.sel4.cloudtype.app`;
+export const adminServer = `https://port-0-admin-server-7e6o2clhv5snco.sel4.cloudtype.app`;
 
 export const Routes = {
   login: `/`,
@@ -12,32 +12,32 @@ export const Routes = {
   worshipGuide: `/admin/worship-guide`,
 
   worshipManagement: `/admin/worship-management`,
-  addWorshipManagement: `/api/admin/worship-management/add`,
-  getWorshipManagement: `/api/admin/worship-management`,
-  editWorshipManagement: `/api/admin/worship-management/edit`,
-  speakerImageSave: `/api/admin/worship/image-save`,
+  addWorshipManagement: `${adminServer}/worship-management/add`,
+  getWorshipManagement: `${adminServer}/worship-management`,
+  editWorshipManagement: `${adminServer}/worship-management/edit`,
+  speakerImageSave: `${adminServer}/worship/image-save`,
   worshipDetail: `/admin/worship-management/:id`,
-  postWorship: `/api/admin/worship-management`,
+  postWorship: `${adminServer}/worship-management`,
 
-  getPraysRequest: `http://localhost:8080/api/users/prays-request`,
-  getPrayRequest: `http://localhost:8080/api/users/pray-request`,
+  getPraysRequest: `${hwayang}/api/users/prays-request`,
+  getPrayRequest: `${hwayang}/api/users/pray-request`,
   prayRequest: `/admin/pray-request`,
   prayRequestDetail: `/admin/pray-request/:id`,
 
-  getGraceSharing: `http://localhost:8080/api/users/grace-sharing`,
+  getGraceSharing: `${hwayang}/api/users/grace-sharing`,
   graceSharing: `/admin/grace-sharing`,
   graceSharingWrite: `/admin/grace-sharing/write`,
   graceSharingDetail: `/admin/grace-sharing/:id`,
-  graceSharingDelete: `http://localhost:8080/api/users/grace-sharing/delete`,
+  graceSharingDelete: `${hwayang}/api/users/grace-sharing/delete`,
   graceImageSave: `/api/users/grace-sharing/write/image-save`,
 
-  getThanksLetter: `http://localhost:8080/api/users/thanks-letters`,
-  // getThanksLetter: `http://localhost:8080/api/users/thanks-letters`,
+  getThanksLetter: `${hwayang}/api/users/thanks-letters`,
+  // getThanksLetter: `${hwayang}/api/users/thanks-letters`,
   thanksLetter: `/admin/thanks-letter`,
   thanksLetterWrite: `/thanks-letter/write`,
   thanksLetterDetail: `/thanks-letter/:id`,
   thanksLetterEdit: `/thanks-letter/edit/:id`,
-  thanksLetterDelete: `http://localhost:8080/api/users/thanks-letter/delete`,
+  thanksLetterDelete: `${hwayang}/api/users/thanks-letter/delete`,
 
   proclamation: `/admin/proclamation`,
   newFamily: `/admin/new-family`,

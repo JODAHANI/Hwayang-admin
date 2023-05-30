@@ -274,6 +274,16 @@ adminRouter.post("/new-family/upload-new-family", async (req, res) => {
   return res.json({ success: true, newFamily });
 });
 
+adminRouter.post("/new-family/delete", async (req, res) => {
+  const { id } = req.body;
+  try {
+    const newfamily = await NewFamily.findByIdAndDelete({ _id: id });
+    return res.json({ success: true, newfamily });
+  } catch (err) {
+    return res.json({ success: false });
+  }
+});
+
 adminRouter.post("/worship/image-save", async (req, res) => {
   worshipUpload(req, res, (err) => {
     if (err) {

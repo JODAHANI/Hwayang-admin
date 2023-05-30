@@ -1,25 +1,14 @@
 import axios from "axios";
-import { GET_NEW_FAMILY } from "./types";
+import {
+  GET_NEW_FAMILY,
+  COMBINE_NEW_FAMILYS,
+  DELETE_NEW_FAMILYS,
+} from "./types";
 
-export const getNewFamily = async (body, arr) => {
+export const getNewFamily = async (body) => {
   try {
     const axiosRequest = await axios.post("/api/admin/new-family", body);
     const { data } = axiosRequest;
-    const addArr = () => {
-      for (let item of data.newFamily) {
-        arr.push(item);
-      }
-      data.newFamily = [...arr];
-    };
-
-    if (arr?.length !== data?.newFamily?.length) {
-      addArr();
-    } else {
-      if (arr[0]._id !== data.newFamily[0]._id) {
-        addArr();
-      }
-    }
-
     return {
       type: GET_NEW_FAMILY,
       payload: data,
@@ -27,6 +16,31 @@ export const getNewFamily = async (body, arr) => {
   } catch (err) {
     return {
       type: GET_NEW_FAMILY,
+      payload: {
+        success: false,
+      },
+    };
+  }
+};
+
+export const combineNewFamily = async (body) => {
+  return {
+    type: COMBINE_NEW_FAMILYS,
+    payload: body,
+  };
+};
+
+export const deleteNewFamily = async (body) => {
+  try {
+    const axiosRequest = await axios.post("/api/admin/new-family/delete", body);
+    const { data } = axiosRequest;
+    return {
+      type: DELETE_NEW_FAMILYS,
+      payload: data,
+    };
+  } catch (err) {
+    return {
+      type: DELETE_NEW_FAMILYS,
       payload: {
         success: false,
       },

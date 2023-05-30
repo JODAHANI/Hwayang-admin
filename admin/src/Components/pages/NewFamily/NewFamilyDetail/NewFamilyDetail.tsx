@@ -1,22 +1,40 @@
+import { deleteNewFamily } from "_actions/newFamily_actions";
 import { adminServer } from "constants/routeItems";
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-
-const LinkCss =
-  "block w-28 max-sm:w-12 max-sm:px-1 text-center border-2 max-sm:text-xs max-sm:py-1 py-2 px-5 bg-[#35C5F0] text-[#fff] rounded-3xl m-auto mt-10 font-bold border-none";
+import { useDispatch } from "react-redux";
+import { useLocation, useHistory } from "react-router-dom";
 
 const NewFamilyDetail = () => {
   const location = useLocation();
+  const dispatch: any = useDispatch();
+  const history = useHistory();
   const name = location.state.name;
   const invitationPerson = location.state.invitationPerson;
   const imagePath = location.state.imagePath;
   const date = location.state.date;
   const id = location.state.id;
 
+  const userDeleteHandler = async () => {
+    const body = {
+      id,
+    };
+    const requestResult = await dispatch(deleteNewFamily(body));
+    if (requestResult.payload.success) {
+      history.replace("/admin/new-family");
+    }
+  };
   return (
     <div className="max-w-screen-xl	m-auto">
-      <div className="p-3">
-        <div className=" w-full text-2xl py-3 px-8 mt-8 font-bold max-sm:text-xl max-sm:px-3 bg-[#FFD4D4] rounded-t-xl">
+      <div className="p-4 mt-5 text-end max-sm:text-xs text-[#DC143C]">
+        <button
+          onClick={userDeleteHandler}
+          className="p-3 px-5 font-black "
+          type="button"
+        >
+          삭제
+        </button>
+      </div>
+      <div className="px-3">
+        <div className=" w-full text-2xl py-3 px-8 font-bold max-sm:text-xl max-sm:px-3 bg-[#FFD4D4] rounded-t-xl">
           <span className="text-base text-[#fff] font-semibold px-1">
             이름:
           </span>
