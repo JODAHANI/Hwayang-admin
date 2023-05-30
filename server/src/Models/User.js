@@ -103,9 +103,9 @@ userSchema.methods.subtractWorship = async function (worship) {
   var user = this;
   try {
     const userWorship = user.worship;
+
     const fillterWorship = userWorship.filter((item) => {
-      console.log(item._id.toString(), worship.toString());
-      return item._id.toString() !== worship.toString();
+      return toString(item) !== toString(worship);
     });
     user.worship = [...fillterWorship];
     user.save();
@@ -115,6 +115,5 @@ userSchema.methods.subtractWorship = async function (worship) {
   }
 };
 
-const Users = mongoose.model("User", userSchema);
-
-export default Users;
+const User = mongoose.model("User", userSchema);
+export default User;

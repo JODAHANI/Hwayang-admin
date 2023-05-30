@@ -22,11 +22,7 @@ app.use("/api/admin", adminRouter);
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-  res.sendFile(
-    path.join(
-      "/Users/jodahan/Desktop/hwayang-admin/server/admin/build/index.html"
-    )
-  );
+  return res.json({ test: "hi" });
 });
 
 app.listen(PORT, () => {

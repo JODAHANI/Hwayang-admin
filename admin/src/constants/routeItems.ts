@@ -1,5 +1,7 @@
 // **라우트랑 텍스트는 구분해서 관리.
-const hwayang = `https://port-0-hwayang-7e6o2clhv5snco.sel4.cloudtype.app/`;
+export const hwayang = `https://port-0-hwayang-7e6o2clhv5snco.sel4.cloudtype.app/`;
+export const adminServer = `http://localhost:80`;
+
 export const Routes = {
   login: `/`,
   home: `/admin`,

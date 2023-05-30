@@ -124,8 +124,9 @@ offLineWorshipSchema.methods.subtract = async function (user) {
   var worship = this;
   try {
     const parti = worship.parti;
+
     const fillterParti = parti.filter((person) => {
-      return toString(person) !== toString(user);
+      return person.toString() !== user.toString();
     });
     worship.parti = [...fillterParti];
     worship.save();

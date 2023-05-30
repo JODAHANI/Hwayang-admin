@@ -410,7 +410,6 @@ adminRouter.post("/worship-result/cancel", async (req, res) => {
     const offLineWorship = await OffLineWorship.findById(id);
     const user = await User.findById(userId);
     const subtractWorship = await offLineWorship.subtract(user._id);
-
     if (subtractWorship) {
       await user.subtractWorship(offLineWorship._id);
     }

@@ -1,3 +1,4 @@
+import { adminServer } from "constants/routeItems";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -23,7 +24,7 @@ const NewFamilyDetail = () => {
             {name}
           </span>
         </div>
-        <img src={`http://localhost:80/${imagePath}`} alt="공지이미지" />
+        <img src={`${adminServer}/${imagePath}`} alt="공지이미지" />
       </div>
       <div className="px-5">
         <h2 className="p-4 font-semibold  bg-[#B4E4FF] my-2 text-[#fff] max-sm:font-xs rounded-lg">

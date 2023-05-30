@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import WorshipApplyForm from "./WorshipApplyForm/WorshipApplyForm";
 import { useDispatch, useSelector } from "react-redux";
 import { getWorship } from "_actions/worship_action";
-import { Routes } from "constants/routeItems";
+import { Routes, adminServer } from "constants/routeItems";
 
 const { worshipManagement } = Routes;
 
@@ -69,7 +69,7 @@ const Card = ({ item }) => {
         <div className="worship-card h-auto flex my-3">
           <img
             className="h-32 inline-block rounded-md"
-            src={`http://localhost:9000/${item.imagePath}`}
+            src={`${adminServer}/${item.imagePath}`}
             alt="설교자 사진"
           />
           <div className="center flex flex-col flex-start px-4 text-[#999] py-2">
