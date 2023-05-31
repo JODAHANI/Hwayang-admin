@@ -21,7 +21,10 @@ const prayReducer = (state: any = { allPrays: [] }, action: any) => {
     case EDIT_PRAY:
       return { ...state, prays: action.payload };
     case DELETE_PRAY:
-      return { ...state, prays: action.payload };
+      console.log();
+      const copyAllPrayss = [...action.payload];
+      state.allPrays = [...copyAllPrayss];
+      return { ...state };
     default:
       return state;
   }

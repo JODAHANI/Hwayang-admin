@@ -69,14 +69,15 @@ export const deletePrays = async (body, prays) => {
       `${hwayang}/api/users/delete/pray-request`,
       body
     );
-    let data = axiosRequest.data;
-    const filterArray = prays.prays.prayRequest.filter((item) => {
+    const { data } = axiosRequest;
+    const filterArray = prays.allPrays.filter((item) => {
       return item._id !== data.pray._id;
     });
-    prays.prays.prayRequest = [...filterArray];
+
+    prays.allPrays = [...filterArray];
     return {
       type: DELETE_PRAY,
-      payload: prays.prays,
+      payload: prays.allPrays,
     };
   } catch (err) {
     return { success: false };

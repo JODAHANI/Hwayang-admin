@@ -46,7 +46,7 @@ const PrayRequestDetail = (props) => {
       id,
     };
     await dispatch(deletePrays(body, prays));
-    props.history.push("/pray-request");
+    props.history.replace("/admin/pray-request");
   };
   if (isNull) return <NotFound />;
   if (pray == null) return <LoadingSpinner />;

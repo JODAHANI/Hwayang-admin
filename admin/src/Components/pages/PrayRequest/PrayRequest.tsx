@@ -120,20 +120,6 @@ const PrayRequest = (props) => {
 export default PrayRequest;
 
 const Card = ({ item, user }) => {
-  const { userData } = user;
-  if (item.writer._id !== userData.id) {
-    return (
-      <li className="prays p-2 pl-5 my-4 flex justify-between items-center shadow-md border-2 rounded-xl max-sm:text-xs">
-        <p className="font-semibold text-[#333]">Private 🔒</p>
-        <Link
-          className="transition-all	text-[#3ed1fe] font-extrabold px-4 py-2 hover:text-[#FFA500]"
-          to={`/not-found`}
-        >
-          view
-        </Link>
-      </li>
-    );
-  }
   return (
     <li className="prays p-2 pl-5 my-4 flex justify-between items-center shadow-md border-2 rounded-xl max-sm:text-xs">
       <p className="font-semibold text-[#333]">{item.title}</p>
