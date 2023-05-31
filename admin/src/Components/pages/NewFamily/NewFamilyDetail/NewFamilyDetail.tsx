@@ -34,7 +34,7 @@ const NewFamilyDetail = () => {
         </button>
       </div>
       <div className="px-3">
-        <div className=" w-full text-2xl py-3 px-8 font-bold max-sm:text-xl max-sm:px-3 bg-[#FFD4D4] rounded-t-xl">
+        <div className=" w-full text-2xl py-3 px-8 font-bold max-sm:text-xl max-sm:px-3 bg-[#FFD4D4] rounded-t-xl ">
           <span className="text-base text-[#fff] font-semibold px-1">
             이름:
           </span>
@@ -42,7 +42,11 @@ const NewFamilyDetail = () => {
             {name}
           </span>
         </div>
-        <img src={`${adminImg}/${imagePath}`} alt="공지이미지" />
+        <img
+          className="block m-auto"
+          src={`${adminImg}/${imagePath}`}
+          alt="공지이미지"
+        />
       </div>
       <div className="px-5">
         <h2 className="p-4 font-semibold  bg-[#B4E4FF] my-2 text-[#fff] max-sm:font-xs rounded-lg">
