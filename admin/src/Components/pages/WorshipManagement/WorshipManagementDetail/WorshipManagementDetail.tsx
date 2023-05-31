@@ -65,8 +65,10 @@ const WorshipManagementDetail = (props) => {
           <div className="my-8 px-4">
             <h3 className="font-semibold">참석인원 : {worship.parti.length}</h3>
             <div className="my-5">
-              <h4 className="my-2 font-semibold text-[#222]">참석 명단</h4>
-              <div className="border-2 border-[#444]" />
+              <h4 className="my-2 font-semibold text-[#222] text-sm">
+                - 참석 명단 -
+              </h4>
+              <div className="border border-[#444]" />
               <ul>
                 {worship.parti.map((parti, i) => (
                   <Card key={i} parti={parti} />
@@ -82,7 +84,7 @@ const WorshipManagementDetail = (props) => {
 
 const Card = (parti) => {
   return (
-    <ul className="border-b-2 p-2 px-4">
+    <ul className="border-b p-2 px-5">
       <li>
         <h4 className="font-bold text-[#777]">{parti.parti.name}</h4>
       </li>
