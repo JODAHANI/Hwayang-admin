@@ -56,9 +56,7 @@ const View = ({ user }): JSX.Element => {
   };
 
   const inputCheckboxHandler = () => {
-    setinputCheckbox((prev) => {
-      return !prev;
-    });
+    return;
   };
 
   return (
