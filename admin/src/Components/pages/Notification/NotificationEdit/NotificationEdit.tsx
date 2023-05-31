@@ -4,7 +4,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useParams } from "react-router-dom";
 import { notificationImageSave } from "_actions/user_actions";
-import { Routes } from "../../../../constants/routeItems";
+import { Routes, adminServer } from "../../../../constants/routeItems";
 
 const inputCss =
   "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline";
@@ -54,9 +54,10 @@ const NotificationEdit = (props): JSX.Element => {
     setImageFile(file);
     setImageFileName(file.name);
   };
+
   const editNotificationAxios = (body) => {
     axios
-      .post("/api/admin/notification/edit-notification", body)
+      .post(`${adminServer}/notification/edit-notification`, body)
       .then((res) => {
         if (res.data.success) {
           props.history.push(notification);

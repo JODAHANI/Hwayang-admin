@@ -171,11 +171,15 @@ adminRouter.post("/notification/image-save", (req, res) => {
 });
 
 adminRouter.post("/notification/get-notification", async (req, res) => {
-  const {
-    body: { id },
-  } = req;
-  const notification = await Notification.findById(id);
-  return res.json({ success: true, notification });
+  try {
+    const {
+      body: { id },
+    } = req;
+    const notification = await Notification.findById(id);
+    return res.json({ success: true, notification });
+  } catch (err) {
+    return res.json({ success: false });
+  }
 });
 
 adminRouter.post("/notification/edit-notification", async (req, res) => {
@@ -191,7 +195,7 @@ adminRouter.post("/notification/edit-notification", async (req, res) => {
 });
 
 adminRouter.get("/notification/get-notifications", async (req, res) => {
-  const notification = await Notification.find();
+  const notification = await Notification.find().sort({ _id: -1 });
   return res.json({ success: true, notification });
 });
 
@@ -205,6 +209,18 @@ adminRouter.post("/notification/upload-notification", async (req, res) => {
     imagePath,
   });
   return res.json({ success: true, notification });
+});
+
+adminRouter.post("/notification/delete", async (req, res) => {
+  const {
+    body: { id },
+  } = req;
+  try {
+    await Notification.findByIdAndDelete({ _id: id });
+    return res.json({ success: true });
+  } catch (err) {
+    return res.json({ success: false });
+  }
 });
 
 adminRouter.post("/new-family/image-save", (req, res) => {

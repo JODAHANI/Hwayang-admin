@@ -4,10 +4,11 @@ import {
   COMBINE_NEW_FAMILYS,
   DELETE_NEW_FAMILYS,
 } from "./types";
+import { adminServer } from "constants/routeItems";
 
 export const getNewFamily = async (body) => {
   try {
-    const axiosRequest = await axios.post("/api/admin/new-family", body);
+    const axiosRequest = await axios.post(`${adminServer}/new-family`, body);
     const { data } = axiosRequest;
     return {
       type: GET_NEW_FAMILY,
@@ -32,7 +33,10 @@ export const combineNewFamily = async (body) => {
 
 export const deleteNewFamily = async (body) => {
   try {
-    const axiosRequest = await axios.post("/api/admin/new-family/delete", body);
+    const axiosRequest = await axios.post(
+      `${adminServer}/new-family/delete`,
+      body
+    );
     const { data } = axiosRequest;
     return {
       type: DELETE_NEW_FAMILYS,
