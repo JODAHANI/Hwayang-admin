@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Routes } from "../../../../constants/routeItems";
+import { Routes, adminServer } from "../../../../constants/routeItems";
 
 const inputCss =
   "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline";
@@ -56,7 +56,7 @@ const NewFamilyWriting = (props) => {
     };
 
     axios
-      .post("/api/admin/new-family/image-save", formData, config)
+      .post(`${adminServer}/new-family/image-save`, formData, config)
       .then((res) => {
         if (res.data.success) {
           const body = {
@@ -66,7 +66,7 @@ const NewFamilyWriting = (props) => {
             date,
           };
           axios
-            .post("/api/admin/new-family/upload-new-family", body)
+            .post(`${adminServer}/new-family/upload-new-family`, body)
             .then((res) => {
               props.history.push(newFamily);
             });

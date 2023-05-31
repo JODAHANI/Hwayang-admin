@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Routes } from "../../../../constants/routeItems";
+import { Routes, adminServer } from "../../../../constants/routeItems";
 
 const inputCss =
   "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline";
@@ -30,7 +30,8 @@ const NewFamilyEdit = (props): JSX.Element => {
     const body = {
       id,
     };
-    axios.post("/api/admin/new-family/get-new-family", body).then((res) => {
+
+    axios.post(`${adminServer}/new-family/get-new-family`, body).then((res) => {
       if (res.data.success) {
         const newFamily = res.data.newFamily;
         setdate(newFamily.date);
