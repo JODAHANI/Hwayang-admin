@@ -2,11 +2,11 @@
 // export const hwayang = `http://localhost:8080`;
 export const hwayang = `https://port-0-hwayang-client-server-7e6o2clhv5snco.sel4.cloudtype.app`;
 
-export const adminServer = `https://port-0-admin-server-7e6o2clhv5snco.sel4.cloudtype.app/api/admin`;
-// export const adminServer = `/api/admin`;
+// export const adminServer = `https://port-0-admin-server-7e6o2clhv5snco.sel4.cloudtype.app/api/admin`;
+export const adminServer = `/api/admin`;
 
-export const adminImg = `https://port-0-admin-server-7e6o2clhv5snco.sel4.cloudtype.app`;
-// export const adminImg = `http://localhost:9000`;
+// export const adminImg = `https://port-0-admin-server-7e6o2clhv5snco.sel4.cloudtype.app`;
+export const adminImg = `http://localhost:9000`;
 
 export const Routes = {
   login: `/`,

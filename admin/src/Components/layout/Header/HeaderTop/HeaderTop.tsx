@@ -48,7 +48,6 @@ const View = ({ user }): JSX.Element => {
       if (result.isConfirmed) {
         dispatch(userLogout()).then((res) => {
           if (res.payload.success) {
-            localStorage.clear();
             history.push("/");
           }
         });
